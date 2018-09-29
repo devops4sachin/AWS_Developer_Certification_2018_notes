@@ -1,0 +1,31 @@
+########## Notes ##########
+
+#### Lambda Essentials
+
+	- AWS Account & Services Layer (Lambda) :
+		AWS Lambda runs your code without you having to manage any server infrastructure. You just upload your Lambda Functions (your code and dependencies) and let AWS handle everything else required to run and scale your functions as needed. 
+		
+	- Lambda Essentials:  
+		• Lambda is a serverless computing platform: 
+			• Serverless means that you can run code without provisioning or managing servers 
+			• You pay only for the compute time you consume (to the millisecond) - you don't pay for any idle time 
+			• By default, Lambda is highly available, fault-tolerant, scalable, elastic, and cost efficient 
+		• Lambda Functions or Lambda Function Packages are the core concept when programming with Lambda and consist of: 
+			• Your application code 
+			• Any application depedencies your code requires such as libraries, configuration, or other dependencies 
+		• Lambda easily integrates with many other AWS services including: 
+			• CloudWatch Logs for monitoring 
+			• API Gateway for exposing HTTP API endpoints backed by Lambda 
+			• KMS to deal with encryption keys 
+			• Many other services through the AWS SDKs and the IAM Role assigned to a Lambda Function on creation 
+		• Current supported languages include: 
+			• Node.js 
+			• Java 
+			• C# 
+			• Python 
+			• Go 
+		• Some Lambda use cases: 
+			• Any event-driven task like S3 bucket changes or DynamoDB table updates 
+			• Stream-processing and ETL processes 
+			• IOT and mobile backends 
+			• Web Application APIs 
