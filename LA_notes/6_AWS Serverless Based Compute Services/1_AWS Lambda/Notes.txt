@@ -143,5 +143,12 @@
 		• Avoid having to reconfigure event sources (they can just point to a function alias) 
 		• Rolling back to an earlier version becomes as easy as updating the alias 
 		• Using Alias traffic splitting between versions can also help test new versions in production 
+	
+	
+#### 6_Lambda API Actions :
+	https://docs.aws.amazon.com/lambda/latest/dg/API_Operations.html
+		- AddPermission
+		- CreateFunction
+		- 
 
 	
