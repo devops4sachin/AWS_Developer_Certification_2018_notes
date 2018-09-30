@@ -1,0 +1,85 @@
+########## Notes ##########
+
+#### 1_DynamoDB Overview :
+
+	- DynamoDB Key Features:  
+		• Fully managed NoSQL database: 
+			• AWS scales compute resources for you 
+			• Mange data, not software/hardware 
+			• Built-in monitoring 
+			• Schemaless, key-value store 
+		• Consistent and fast performance: 
+			• Data stored on fast SSDs 
+			• Control throughput with read/write capacity 
+			• Replicated across multiple AWS avilability zones 
+			• DynamoDB Global Tables allow for replication across AWS regions 
+		• Easy to setup and communicate with: 
+			• AWS Console or APIs 
+			• CLI and SDKs 
+			• Easily integrates with other AWS services 
+			• DynamoDB Streams - Allows for other services to take action based on changes to DynamoDB items 
+		• Optional encryption at rest 
+		• Popular use cases include: 
+			• IOT (storing meta data) 
+			• Gaming (storing session information, leaderboards) 
+			• Mobile (Storing user profiles, personalization) 
+			
+	- DynamoDB Pricing*:
+		- Core Pricing Components 
+			• Provisioned Throughput for Writes: 
+				• Monthly rate per Write Capcity Unit (WCU)** 
+			• Provisioned Throughput for Reads: 
+				• Monthly rate per Read Capacity Unit (RCU)** 
+			• Indexed data storage: 
+				• Hourly rate per gigabyte of table data 
+		
+		- Other Pricing Factors 
+			• Reserved capacity: 
+				• Commit to paying for minimum number of RCUs and WCUs for reduced cost 
+			• DynamoDB Auto Scaling: 
+				• Free - you pay for the scaled read and write capacity 
+			• Global Tables - Replicated Write Capacity Units (rWCUs): 
+				• Used for global replica tables when setting write capacity manually 
+			• On-Demand Backup - pay per GB-month stored) 
+			• On-Demand Restore - pay per GB restored) 
+			• DynamoDB Accellerator (DAX) - pay for the instances used per hour 
+			• DynamoDB Streams - pay per 100k reads 
+
+		More details - https://aws.amazon.com/dynamodb/pricing/ 
+		
+		* No specific prices are listed because pricing frequently differs by region and over time 
+		** The RCUs and WCUs are prorated per hour. For example, if you create a table and delete it after 10 hours you only pay for the capacity of that table prorated for 10 hours. This is also how DynamoDB auto-scaling works -billing you on the hourly read and write capacity of your table. 
+
+
+#### 2_3_DynamoDB Core Concepts && Provisioned Throughput :
+
+	- DynamoDB Partition Keys:  
+		• Every DynamoDB table requires a partition key 
+		• The partition key of an item is also know as its hash attribute 
+		• Partition key attributes must be scalar (they can only hold one value) 
+		• DynamoDB uses partitions keys in an internal hash function to determine where the partition data will be stored (see partitions) 
+		
+	More on partition keys: 
+		https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents/html
+		
+	- DynamoDB Sort Keys:  
+		• DynamoDB tables do not require a sort key 
+		• The sort key of an item is also know as its range attribute 
+		• Range key attributes must be scalar (they can only hold one value) 
+		• After DynamoDB uses the partition key to determine the partition data will be stored in (see partitions) the sort key is used to sort the data inside of that partition 
+		
+		More on partition keys: 
+			https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents/html
+			
+	- DynamoDB Items :
+	
+	- DynamoDB Attributes :
+
+
+#### 4_DynamoDB Read Operations :
+
+	- 8_ReadOperations
+	
+	
+#### 5_Local and Global Secondary Indexes :
+	
