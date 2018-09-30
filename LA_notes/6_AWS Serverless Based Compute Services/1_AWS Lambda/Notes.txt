@@ -149,6 +149,7 @@
 	https://docs.aws.amazon.com/lambda/latest/dg/API_Operations.html
 		- AddPermission
 		- CreateFunction
-		- 
+		- CreateEventSourceMapping : Its a PULL based model. Lambda would be keeping a Eye on the stream and would be invoking itself based on the event.
+		- Invoke: Its a Push based model.
 
 	
