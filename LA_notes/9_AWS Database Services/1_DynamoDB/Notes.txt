@@ -82,4 +82,48 @@
 	
 	
 #### 5_Local and Global Secondary Indexes :
+
+		- 9_DBIndexes
+		- 10_DBLocalSecIndex
+		- 11_DBGlobalIndex
+
+
+#### 6_Conditional Writes and Atomic Counters :
+
+		- 6_Writes
+		
+		
+
+#### 7_Common DynamoDB Errors and Limits:
+
+	- Common DynamoDB Errors:  
+		• ThrottlingException: 
+			• You might be trying to delete, create, or update tables too quickly. 
+			
+		• ProvisionedThroughputExceededException: 
+			• The throughput on the table is insufficinet to support the amount of read and write operations you're doing. 
+			
+		• ResourceNotFoundException: 
+			• The requested table does not exist, or is too early in the CREATING state. 
+			
+		• More Errors - AWS Documentation
+		https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/CommonErrors.html  
+		
+		• DynamoDB Limits: 
+			• Secondary Indexes 
+			• Provisioned Throughput 
+			• Number of DynamoDB tables 
+			• Items and Attributes 
+			• Specific API Limits 
+			
+		• Details about limits: 
+			https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html 
+				- You can define maximum of 5 Local and 5 Global secondary indexes per table.
+				
+			- Also refer to below link for more details.
+				https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html#limits-secondary-indexes
+				
+			- Initial 256 tables per region.
+		
+		
 	

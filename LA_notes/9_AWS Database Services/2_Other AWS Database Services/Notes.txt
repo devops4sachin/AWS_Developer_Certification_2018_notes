@@ -1,1 +1,75 @@
 ########## Notes ##########
+
+
+#### 1_RDS Essentials :
+
+	- RDS Essentials:  
+		• RDS is a fully managed Relational Database Service: 
+			• Does not allow access to the underlying operating system (fully-managed) 
+			• You connect to the RDS database server in the same way you would connect to a traditional on-premises database instance (i.e., MySQL command line) 
+			• RDS has the ability to provision/resize hardware on demand for scaling 
+			• You can enable Multi-AZ deployments for backup and high available solutions 
+			• Utilize Read Replicas (MySQUPostgreSQUAurora) - to help offload hits on your primary database 
+			• Relational databases are databases that organize stored data into tables 
+			• The associated tables have defined relationships between them 
+
+		• Databases Supported By RDS: 
+			• MySQL 
+			• MariaDB 
+			• PostgreSQL 
+			• Oracle 
+			• MS SQL Server 
+			• Aurora: 
+				• Is a home grown Relational Database that has been forked from, and fully compatible with MySQL 
+				• It has fives times better performance then MySQL. and a lower price point than commercial databases 
+				
+		• Benefits of running RDS instead of a database on your own instance: 
+			• Automatic minor updates 
+			• Automatic backups (point-in-time snapshots) 
+			• Not required to manage an operating system 
+			• Multi-AZ with a single click 
+			• Automatic recovery in event of a failover 
+
+			
+#### 2_What is RedShift :
+
+	- Redshift Essentials:  
+		• Amazon Redshift is a petabyte-scale data warehousing service 
+		• It is fully-managed and scalable 
+		• Generally used for big-data analytics, it can integrate with most popular business intelligence tools, including: 
+			• Jaspersoft 
+			• Microstrategy 
+			• Pentaho 
+			• Tableau 
+			• Business Objects 
+			• Cognos 
+
+			
+			
+#### 3_Amazon ElastiCache and Caching Strategies :
+
+	- ElastiCache Essentials:  
+		• ElasticCache is a fully managed, in-memory cache engine used to improve database performance by caching results of queries that are made to a database 
+		• ElasticCache is great for large, high-performance or high-taxing queries - and can store them inside of a cache (Elastic Cache Cluster) that can be accessed later (instead of repeat request continually hitting the primary database) 
+		• ElastiCache allows for managing web sessions, and also caching dynamically generated data 
+		• Available engines to power ElastiCache include: 
+			• Memcached (Mem-Cache-D) 
+			• Redis 
+		• Generally, the application needs to be built to work with either Redis or Memcached 
+		• Popular options like MySQL have Memcached plugins, which allow an application to easily work with ElastiCache (if using Memcached as the engine) 
+		
+	- Caching Strategies 
+		• Lazy Loading: 
+			• With lazy loading, you write data to the cache when a cache miss occurs 
+			• Lazy loading avoids filling up the cache with data that wont be requested 
+			• Data in the cache can become stale if lazy loading is implemented without other strategies 
+		• Write Through: 
+			• When using a write through strategy, the cache is updated whenever a new write or update is made to the underlying database 
+			• A write through strategy allows cache data to remain up-to-date 
+			• A write through strategy can add wait time to write operations in your application 
+			• A write through strategy without a TTL can result in a lot of cached data that is never read 
+		• Adding Time To Live (TTL) 
+			• Drawbacks of lazy loading and write through techniques can be helped by a TTL 
+			• A TTL is the length of time before a key expires 
+			• When reading an expired key, the application checks the value in the underlying database 
+			• TTLs do not garuntee fresh information, but they keep the data from getting too stale and allow the cache to clean up unused keys 
