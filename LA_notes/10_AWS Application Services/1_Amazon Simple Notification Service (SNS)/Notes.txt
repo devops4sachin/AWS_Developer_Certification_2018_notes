@@ -1,1 +1,136 @@
 ########## Notes ##########
+
+
+#### 1_Intro to SNS :
+
+	- Simple Notification Service (SNS) is a fully-managed service for pub/sub messaging and mobile notifications. SNS allows you to fan-out messages to large numbers of subscribers and makes it easier to send push notifications and SMS to a variety of devices.
+
+	- SNS Essentials: 
+		• SNS is a Pub-sub service for messaing 
+		• SNS coordinates and manages the sending and delivery of messages to specific endpoints 
+		• We are able to use SNS to receive notifications when events occur in our AWS Environment 
+		• SNS is integrated into many AWS services, so it is very easy to setup notifications based on events that occur in those services 
+		• With CloudWatch and SNS, a full-environment monitoring solution can be created that notifies administrators of alerts, capacity issues, downtime, changes in the environment, and more! 
+		• This service can also be used for publishing 10S/Android app notifications and creating automation based off of notifications 
+
+	- SNS Components:  
+		• Topic 
+		• Subscription 
+		• Publisher 
+		
+	- SNS Benefits:  
+		• Scalable and highly reliable 
+		• Usable through the AWS Console, APIs, CLI, and multiple SDKs 
+
+	- SNS Topic:  
+		• Topics are the group of subscriptions that you send a message to 
+		• Topics require unique names limited to 256 characters 
+		• Topic names allow alphanumeric characters plus hyphens and underscores 
+		• Topics and messages are stored redundantly across multiple servers and data centers 
+		
+	- SNS Subscriber:  
+		• An endpoint that a message is sent to 
+		• Available endpoints include: 
+			• HTTP HTTPS Email 
+			• Email-JSON 
+			• SQS 
+			• Application, Mobile APP notifications (I0S/Android/Amazon/Microsoft) 
+			• Lambda 
+			• SMS (cellular text message) 
+			
+	- SNS Publisher:
+		• The "entity" that triggers the sending of a message 
+		• Examples include: 
+			• AWS CLI 
+			• AWS SDKs (e.g. Boto3) 
+			• AWS services: 
+				• S3 Events 
+				• Cloudwatch Alarms 
+				• Using Lambda to publish to SNS 
+
+				
+#### 2_ Managing access to SNS resources :
+	
+	- SNS Access Control Policies:  
+		• Grant access to your SNS topics to another AWS account: 
+			• Amazon SNS API - AddPermission: 
+				• Topic, AWS Account ID(s), Actions, Label 
+				• Automatically generate an access control policy to SNS 
+			• Grant access to some AWS services to publish to your SNS topic (Many services like EC2 or AWS Lambda will use an IAM Role instead) 
+			• Can use IAM Policies and Access Control policies at the same time 
+			
+	- for example :
+		{
+		 "Version": "2008-10-17",
+		 "Id": "example-ID",
+		 "Statement":[
+		  {
+			"Sid":"example-statement-ID",
+			"Effect":"Allow",
+			"Principal": {
+				"AWS":"*"
+			}
+			"Action": [
+			SNS:Publish"
+			], 
+			"Resource" : arn:aws:SNS:us-east-1:476409174401:newTopic",
+			"Condition":{
+				"ArnLike": {
+					"aws:SourceArn":"arn:aws:S3:*:*:cda2018snstest"
+				}
+			}
+		  }
+		}
+
+		
+		
+#### 3_SNS Message Data :
+
+	- SNS Messages:  
+		• Typically JSON formatted key-value pairs 
+		• Allows developers to grab message data and parse it 
+		• POSTs to HTTP/S endpoints with specific headers: 
+			• Headers allow verification of message authenticity 
+		• Message content depends on the subscriber 
+		
+	- Message Body: 
+		• Message - The message value specified when the notification was published 
+		• Messageld - A Universally Unique Identifier (UUID). The same id must be reused for retries 
+		• Signature - Base64-encoded "SHAlwithRSA" signature of the Message, Messageld, Subject, Type, Timestamp, and TopicArn values 
+		• SignatureVersion - Version of Amazon SNS Signature used 
+		• SigningCertURL - The URL to the certificate used to sign the message 
+		• Subject - An optional subject parameter 
+		• Timestamp - The GMT time when the notification was published 
+		• TopicArn - The ARN for the topic that this message was published to 
+		• Type - The type of message (Notifications are type Notification) 
+		• UnsubscribeURL - A URL you can use to unsubscribe from the SNS topic 
+		
+	- Message Attributes 
+		• Useful for SQS and moible push notifications 
+		• Sent along with the message 
+		• Each message attribute needs a Name, Type, and Value 
+
+		
+		
+#### 4_Mobile Push with SNS :		
+
+	- 2_NotificationSerEx
+	
+	
+
+	
+#### 5_SNS API Actions and Errors :
+
+	- SNS API Actions:  
+		• Common Actions: 
+			• Create Topic 
+			• Publish 
+			• Subscribe 
+			• Unsubscribe 
+			
+	Other API actions https://docs.aws.amazon.com/sns/latest/api/API_Operations.html
+		- Refer to 
+			- CreateTopic, Publish, Subscribe, Unsubscribe links.
+		
+	Common SNS Errors https://docs.aws.amazon.com/sns/latest/api/CommonErrors.html
+		- Review some of the errors.
