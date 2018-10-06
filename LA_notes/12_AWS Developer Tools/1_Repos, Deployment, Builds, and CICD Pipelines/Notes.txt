@@ -1,1 +1,25 @@
 ########## Notes ##########
+
+
+#### 1_X-Ray :
+
+	- X-Ray: 
+		- AWS X-Ray traces requests as they move through your applications. It collects data and makes it available to view, filter, and sort. You can then use the data to gain insights and identify potential optimizations to make inside your application. 
+		
+	- X-Ray Concepts: 
+		• Segments - Data about the work done by your application (can include data on: the request, the response, subsegments, and issues) 
+		• Subsegments - A more granular view of data inside of segments 
+		• Service Graph - A JSON document that contains information about how your application's services and resources interact (this can create a visualized service map) 
+		• Traces - Trace IDs track requests as they go through your applications: 
+			• The first X-Ray supported service to interact with a request adds an HTTP trace ID header 
+			• The trace ID header propagates downstream to track the request as it moves through the system 
+		• Sampling - X-Ray applies an algorithm to sample request data but you can configure the frequency of sampling (e.g. to reduce it on high-volume or lower-volume requests) 
+		• Tracing Header - Examples: 
+			X-Amzn-Trace-Id: Root=1-5759e988-bd862e3fe1be46a994272793;Sampled=1 
+			X-Amzn-Trace-Id: Root=1-5759e988-bd862e3felbe46a994272793:Parent=53995c3f42cd8ad8:Sampled=1 
+		• Filter Expressions - Used in the X-Ray console to search through your traces by different characteristics (e.g. specific trace ids, partial URL paths, annotations) 
+		• Annotations and Metadata - additional way to store searchable (annotations) and non-searchable (metadata) data about traces 
+		• Errors, Faults, and Exceptions - X-Ray tracks application errors and categorizes them as: 
+			• Error — Client errors (400 series errors) 
+			• Fault — Server faults (500 series errors) 
+			• Throttle — Throttling errors (429 Too Many Requests) 
