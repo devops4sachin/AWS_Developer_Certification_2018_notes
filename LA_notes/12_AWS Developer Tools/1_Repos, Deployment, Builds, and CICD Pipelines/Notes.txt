@@ -23,3 +23,42 @@
 			• Error — Client errors (400 series errors) 
 			• Fault — Server faults (500 series errors) 
 			• Throttle — Throttling errors (429 Too Many Requests) 
+
+			
+			
+#### 2_AWS Code Commit :
+
+	- CodeCommit:  
+		AWS CodeCommit is a managed, secure, and scalable source control service that hosts private Git repositories. 
+		
+		• Benefits of CodeCommit: 
+			• Fully managed by AWS 
+			• Stored encrypted and secured in AWS 
+			• Collaborate on code 
+			• No limits on file types or the size of your repositories 
+			• Integrate with other AWS services 
+			• Migrate to CodeCommit from other git repositories 
+			• Use the same git workflows you are familiar with 
+			
+			
+#### 3_AWS Code Build :
+	
+	- 1_AWS Code Build
+	
+	
+
+#### 4 AWS Code Deploy :
+		
+	- 2_AWSCodeDeploy
+	- 3_AWSCodeDeployTypes
+	- 4_CodeDeployHooks
+	
+	
+#### 5 AWS Code Pipeline :
+
+	- 5_AWSCodePipeline
+	
+	
+#### 6 AWS Code Star :
+
+	- 6_AWSCodeStar
